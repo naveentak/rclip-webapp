@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --color-apple-bg: #FBFBFD;
+  --color-apple-text: #1D1D1F;
+  --color-apple-gray: #F5F5F7;
+  --color-apple-subtle: #86868B;
+  --color-accent: #2563EB;
+  --color-accent-light: #DBEAFE;
+}
+
+body {
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--color-apple-bg);
+  color: var(--color-apple-text);
+  overflow-x: hidden;
+  margin: 0;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #1a1a1a 0%, #555 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.apple-shadow {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.apple-shadow-lg {
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: white;
+}
