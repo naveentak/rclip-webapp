@@ -1,5 +1,15 @@
 import { motion } from 'framer-motion'
 
+const heroItems = [
+  { num: 1, text: 'https://developer.apple.com/documentation', time: '2m ago', app: 'Safari', isImage: false },
+  { num: 2, text: 'func viewDidLoad() { super.viewDidLoad() }', time: '8m ago', app: 'Xcode', isImage: false },
+  { num: 3, text: 'Meeting notes: Review design specs and finali...', time: '24m ago', app: 'Notes', isImage: false },
+  { num: 4, text: 'Project-Roadmap-Q1.pdf', time: '35m ago', app: 'Finder', isImage: false, active: true },
+  { num: 5, text: 'The quick brown fox jumps over the lazy dog', time: '1h ago', app: 'TextEdit', isImage: false },
+  { num: 6, text: 'app-screenshot.png', time: '2h ago', app: 'Finder', isImage: false },
+  { num: 7, text: '[image]', time: '3h ago', app: 'Preview', isImage: true },
+]
+
 const Hero = () => {
   return (
     <div className="relative pt-32 pb-20 md:pt-48 md:pb-32 flex flex-col items-center justify-center text-center px-6 bg-[#FBFBFD]">
@@ -61,85 +71,96 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Floating App Window Preview */}
+      {/* Floating App Panel Preview */}
       <motion.div
         initial={{ opacity: 0, y: 60, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className="mt-20 relative w-full max-w-5xl mx-auto"
+        className="mt-20 relative w-full max-w-lg mx-auto"
       >
-        <div className="relative z-10 apple-shadow-lg rounded-[2rem] overflow-hidden bg-white p-2 border border-gray-100">
-          {/* Mock macOS window */}
-          <div className="bg-[#1E1E1E] rounded-[1.5rem] overflow-hidden">
-            {/* Title bar */}
-            <div className="flex items-center px-4 py-3 bg-[#2D2D2D]">
-              <div className="flex space-x-2">
-                <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
-                <div className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
-                <div className="w-3 h-3 rounded-full bg-[#28C840]" />
-              </div>
-              <span className="text-white/40 text-xs ml-4 font-medium">ClipStash</span>
-            </div>
-            {/* Content */}
-            <div className="flex h-[340px] md:h-[420px]">
-              {/* Sidebar list */}
-              <div className="w-72 border-r border-white/10 p-3 space-y-1.5 overflow-hidden">
-                <div className="flex items-center px-3 py-2 bg-white/5 rounded-lg border border-white/10 mb-3">
-                  <svg className="w-3.5 h-3.5 text-white/40 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                  <span className="text-white/30 text-xs">Search clipboard...</span>
-                </div>
-                {[
-                  { type: 'link', text: 'https://github.com/naveentak/clipstash', time: '2m ago', active: true },
-                  { type: 'code', text: 'git commit -m "feat: add pinning"', time: '15m ago', active: false },
-                  { type: 'text', text: 'Meeting notes: Q1 roadmap review...', time: '1h ago', active: false },
-                  { type: 'image', text: 'Screenshot 2024-01-15.png', time: '2h ago', active: false },
-                  { type: 'text', text: 'API key: sk-***masked***', time: '3h ago', active: false },
-                ].map((item, i) => (
-                  <div
-                    key={i}
-                    className={`p-3 rounded-xl transition-all ${
-                      item.active
-                        ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/30'
-                        : 'text-white/60 hover:bg-white/5'
-                    }`}
-                  >
-                    <div className="flex justify-between items-center mb-1">
-                      <span className={`text-[10px] uppercase font-bold px-1.5 py-0.5 rounded ${
-                        item.active ? 'bg-white/20 text-white' : 'bg-white/10 text-white/40'
-                      }`}>
-                        {item.type}
-                      </span>
-                      <span className="text-[10px] opacity-50">{item.time}</span>
-                    </div>
-                    <p className="text-sm truncate font-medium">{item.text}</p>
-                  </div>
-                ))}
-              </div>
-              {/* Preview pane */}
-              <div className="flex-1 p-8 flex flex-col justify-center items-center text-center">
-                <div className="w-14 h-14 bg-blue-600/20 rounded-2xl flex items-center justify-center mb-4">
-                  <svg className="w-7 h-7 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-                  </svg>
-                </div>
-                <h4 className="text-white text-lg font-bold mb-1">Link Preview</h4>
-                <p className="text-white/40 text-sm mb-6 max-w-sm font-mono">
-                  https://github.com/naveentak/clipstash
-                </p>
-                <div className="flex space-x-3">
-                  <button className="px-5 py-2 bg-white text-black rounded-full text-xs font-bold">
-                    Paste
-                  </button>
-                  <button className="px-5 py-2 bg-white/10 text-white rounded-full text-xs font-bold border border-white/10">
-                    Pin Item
-                  </button>
-                </div>
-              </div>
+        <div className="relative z-10 apple-shadow-lg rounded-2xl overflow-hidden bg-[#232323] border border-white/10">
+          {/* Search bar */}
+          <div className="px-4 pt-4 pb-2">
+            <div className="flex items-center px-3 py-2.5 bg-white/[0.06] rounded-xl border border-white/10">
+              <svg className="w-4 h-4 text-white/30 mr-2.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              <span className="text-white/30 text-sm">Search clipboard history...</span>
             </div>
           </div>
+
+          {/* Category tabs */}
+          <div className="px-4 pb-2">
+            <div className="flex items-center">
+              {['All', 'URLs', 'Email', 'Code', 'Colors', 'Phone'].map((tab, i) => (
+                <div key={tab} className="flex items-center">
+                  {i > 0 && <div className="w-px h-4 bg-white/10 mx-0.5" />}
+                  <button
+                    className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-all ${
+                      tab === 'All'
+                        ? 'bg-blue-600 text-white'
+                        : 'text-white/40 hover:text-white/60'
+                    }`}
+                  >
+                    {tab}
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="h-px bg-white/5" />
+
+          {/* Clipboard items list */}
+          <div className="divide-y divide-white/[0.03]">
+            {heroItems.map((item) => (
+              <div
+                key={item.num}
+                className={`flex items-start px-4 py-3 ${
+                  item.active ? 'bg-white/[0.08]' : 'hover:bg-white/[0.03]'
+                }`}
+              >
+                {/* Row number */}
+                <span className="text-white/20 text-sm font-medium w-6 flex-shrink-0 pt-0.5">
+                  {item.num}
+                </span>
+
+                {/* Icon */}
+                <div className="w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3">
+                  {item.isImage ? (
+                    <div className="w-7 h-7 rounded bg-blue-900/40 border border-white/10" />
+                  ) : (
+                    <svg className="w-5 h-5 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  )}
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 min-w-0">
+                  <p className="text-white/80 text-sm font-medium truncate">{item.text}</p>
+                  <p className="text-white/25 text-xs mt-0.5">
+                    {item.time}&nbsp;&nbsp;{item.app}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Preview pane */}
+          <div className="border-t border-white/5">
+            <div className="flex items-start justify-between px-4 py-3">
+              <p className="text-white/50 text-sm font-mono truncate flex-1 mr-4">
+                Project-Roadmap-Q1.pdf
+              </p>
+              <span className="text-white/20 text-xs flex-shrink-0 pt-0.5">22 chars</span>
+            </div>
+            {/* Empty preview space */}
+            <div className="h-20" />
+          </div>
         </div>
+
         {/* Glow behind */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-100/30 blur-[100px] rounded-full -z-10" />
       </motion.div>
