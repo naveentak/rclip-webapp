@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { motion } from 'framer-motion'
 
 interface NavbarProps {
@@ -6,15 +5,6 @@ interface NavbarProps {
 }
 
 const Navbar = ({ scrolled }: NavbarProps) => {
-  const [comingSoon, setComingSoon] = useState(false)
-
-  const handleClick = (e: React.MouseEvent) => {
-    e.preventDefault()
-    if (comingSoon) return
-    setComingSoon(true)
-    setTimeout(() => setComingSoon(false), 2000)
-  }
-
   return (
     <motion.nav
       initial={{ y: -20, opacity: 0 }}
@@ -40,12 +30,12 @@ const Navbar = ({ scrolled }: NavbarProps) => {
         </div>
 
         <div>
-          <button
-            onClick={handleClick}
-            className="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-all"
+          <a
+            href="#download"
+            className="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-all inline-block"
           >
-            {comingSoon ? 'Coming Soon' : 'Get r:clip'}
-          </button>
+            Get Early Access
+          </a>
         </div>
       </div>
     </motion.nav>
