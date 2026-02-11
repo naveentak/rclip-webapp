@@ -35,7 +35,7 @@ function App() {
                 Designed for your workflow.
               </h2>
               <p className="text-xl text-gray-500 max-w-2xl mx-auto">
-                ClipStash stays out of your way until you need it. Access your entire history with a simple keystroke.
+                r:clip stays out of your way until you need it. Access your entire history with a simple keystroke.
               </p>
             </div>
             <ClipboardDemo />

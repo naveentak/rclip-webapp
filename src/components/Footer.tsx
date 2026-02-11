@@ -12,18 +12,17 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             className="mb-10 md:mb-0 max-w-sm"
           >
-            <div className="flex items-center space-x-2.5 mb-6">
+            <div className="flex items-center space-x-2 mb-6">
               <div className="w-10 h-10 bg-black rounded-xl flex items-center justify-center">
-                <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
-                  <path d="M16 6a2 2 0 0 0-2 2v1h-3a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V11a2 2 0 0 0-2-2h-3V8a2 2 0 0 0-2-2z" stroke="white" strokeWidth="1.5" fill="none"/>
-                  <circle cx="16" cy="8" r="1.5" fill="white"/>
-                  <path d="M13 16h6M13 19h4" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-                </svg>
+                <span className="text-white font-bold text-xl">r:</span>
               </div>
-              <span className="text-2xl font-bold tracking-tight">ClipStash</span>
+              <span className="text-2xl font-bold tracking-tight">clip</span>
             </div>
-            <p className="text-gray-500 leading-relaxed mb-6">
-              A lightweight macOS clipboard history manager that lives in your menu bar. Built with Swift, powered by SQLite.
+            <p className="text-gray-500 leading-relaxed mb-4">
+              The most powerful, lightweight clipboard manager for macOS. Part of the r:labs suite by r:factory.
+            </p>
+            <p className="text-gray-400 text-xs mb-6">
+              An <a href="https://refactory.co.za" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-black transition-colors underline underline-offset-2">r:factory</a> product
             </p>
             <div className="flex space-x-4">
               <a href="https://github.com/naveentak/clipstash-macos-app" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-black transition-colors">
@@ -62,18 +61,18 @@ const Footer = () => {
             <div>
               <h4 className="font-bold mb-4 text-sm uppercase tracking-widest text-gray-400">Shortcuts</h4>
               <ul className="space-y-3 text-sm text-gray-600">
-                <li className="flex justify-between"><span>Open Panel</span> <kbd className="text-xs bg-gray-100 px-2 py-0.5 rounded font-mono">⌘⇧V</kbd></li>
-                <li className="flex justify-between"><span>Quick Paste</span> <kbd className="text-xs bg-gray-100 px-2 py-0.5 rounded font-mono">⌘1-9</kbd></li>
+                <li className="flex justify-between"><span>Open Panel</span> <kbd className="text-xs bg-gray-100 px-2 py-0.5 rounded font-mono">{'\u2318\u21E7V'}</kbd></li>
+                <li className="flex justify-between"><span>Quick Paste</span> <kbd className="text-xs bg-gray-100 px-2 py-0.5 rounded font-mono">{'\u23181-9'}</kbd></li>
                 <li className="flex justify-between"><span>Preview</span> <kbd className="text-xs bg-gray-100 px-2 py-0.5 rounded font-mono">Space</kbd></li>
-                <li className="flex justify-between"><span>Delete</span> <kbd className="text-xs bg-gray-100 px-2 py-0.5 rounded font-mono">⌫</kbd></li>
+                <li className="flex justify-between"><span>Delete</span> <kbd className="text-xs bg-gray-100 px-2 py-0.5 rounded font-mono">{'\u232B'}</kbd></li>
               </ul>
             </div>
           </motion.div>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-100 text-xs text-gray-400">
-          <p>&copy; {new Date().getFullYear()} ClipStash. All rights reserved. macOS is a trademark of Apple Inc.</p>
-          <p className="mt-4 md:mt-0">Built with Swift. Powered by SQLite.</p>
+          <p>&copy; {new Date().getFullYear()} r:factory. All rights reserved. macOS is a trademark of Apple Inc.</p>
+          <p className="mt-4 md:mt-0">Designed in South Africa. Built for the world.</p>
         </div>
       </div>
     </footer>

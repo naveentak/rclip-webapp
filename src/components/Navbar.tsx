@@ -15,15 +15,11 @@ const Navbar = ({ scrolled }: NavbarProps) => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <div className="flex items-center space-x-2.5">
+        <div className="flex items-center space-x-2">
           <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
-            <svg width="18" height="18" viewBox="0 0 32 32" fill="none">
-              <path d="M16 6a2 2 0 0 0-2 2v1h-3a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V11a2 2 0 0 0-2-2h-3V8a2 2 0 0 0-2-2z" stroke="white" strokeWidth="1.5" fill="none"/>
-              <circle cx="16" cy="8" r="1.5" fill="white"/>
-              <path d="M13 16h6M13 19h4" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-            </svg>
+            <span className="text-white font-bold text-lg">r:</span>
           </div>
-          <span className="text-xl font-bold tracking-tight">ClipStash</span>
+          <span className="text-xl font-bold tracking-tight">clip</span>
         </div>
 
         <div className="hidden md:flex items-center space-x-8 text-sm font-medium">

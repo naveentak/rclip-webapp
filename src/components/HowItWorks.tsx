@@ -4,20 +4,20 @@ const steps = [
   {
     step: '1',
     title: 'Copy anything',
-    description: 'ClipStash silently monitors your clipboard in the background. Text, images, files, code — everything is captured automatically.',
+    description: 'r:clip silently monitors your clipboard in the background. Text, images, files, code — everything is captured automatically.',
     kbd: null,
   },
   {
     step: '2',
     title: 'Summon the panel',
     description: 'Press the global hotkey to bring up your clipboard history instantly. It appears right below your menu bar, ready to go.',
-    kbd: '⌘ ⇧ V',
+    kbd: '\u2318 \u21E7 V',
   },
   {
     step: '3',
     title: 'Search & paste',
     description: 'Type to search, use arrow keys to navigate, Return to paste. Or use Cmd+1 through Cmd+9 for quick paste of recent items.',
-    kbd: '⌘ 1-9',
+    kbd: '\u2318 1-9',
   },
 ]
 
@@ -38,7 +38,7 @@ const HowItWorks = () => {
           Three steps. Zero friction.
         </h2>
         <p className="text-xl text-gray-500 max-w-2xl mx-auto">
-          ClipStash integrates seamlessly into your macOS workflow. No configuration needed.
+          r:clip integrates seamlessly into your macOS workflow. No configuration needed.
         </p>
       </motion.div>
 
@@ -52,7 +52,6 @@ const HowItWorks = () => {
             transition={{ duration: 0.6, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="text-center relative"
           >
-            {/* Connector line */}
             {idx < steps.length - 1 && (
               <div className="hidden md:block absolute top-12 left-[60%] w-[80%] h-px bg-gradient-to-r from-gray-200 to-transparent" />
             )}

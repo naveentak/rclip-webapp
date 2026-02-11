@@ -17,11 +17,7 @@ const DownloadCTA = () => {
           transition={{ duration: 0.5, delay: 0.1, type: 'spring', stiffness: 200 }}
           className="w-20 h-20 mx-auto mb-8 bg-white/10 rounded-[1.5rem] flex items-center justify-center border border-white/10"
         >
-          <svg width="36" height="36" viewBox="0 0 32 32" fill="none">
-            <path d="M16 6a2 2 0 0 0-2 2v1h-3a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V11a2 2 0 0 0-2-2h-3V8a2 2 0 0 0-2-2z" stroke="white" strokeWidth="1.5" fill="none"/>
-            <circle cx="16" cy="8" r="1.5" fill="white"/>
-            <path d="M13 16h6M13 19h4" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-          </svg>
+          <span className="text-white font-bold text-3xl">r:</span>
         </motion.div>
 
         <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
@@ -31,7 +27,7 @@ const DownloadCTA = () => {
         </h2>
 
         <p className="text-gray-400 text-lg mb-10 max-w-lg mx-auto leading-relaxed">
-          ClipStash is free, lightweight, and built natively for macOS.
+          r:clip is free, lightweight, and built natively for macOS.
           No account needed. No data leaves your device.
         </p>
 

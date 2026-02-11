@@ -40,7 +40,7 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.45 }}
           className="text-lg md:text-2xl text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed"
         >
-          A lightweight, powerful clipboard history manager for macOS. Instant search, rich previews, smart categories, and a keyboard-first workflow.
+          The most powerful, lightweight, and minimalist clipboard manager for macOS. Crafted for developers, writers, and designers.
         </motion.p>
 
         <motion.div
@@ -55,7 +55,7 @@ const Hero = () => {
             whileTap={{ scale: 0.97 }}
             className="w-full sm:w-auto px-8 py-4 bg-black text-white rounded-full font-medium text-lg hover:bg-gray-800 transition-colors flex items-center justify-center group shadow-xl hover:shadow-2xl"
           >
-            Get ClipStash for Mac
+            Get r:clip for Mac
             <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
@@ -121,12 +121,9 @@ const Hero = () => {
                   item.active ? 'bg-white/[0.08]' : 'hover:bg-white/[0.03]'
                 }`}
               >
-                {/* Row number */}
                 <span className="text-white/20 text-sm font-medium w-6 flex-shrink-0 pt-0.5">
                   {item.num}
                 </span>
-
-                {/* Icon */}
                 <div className="w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3">
                   {item.isImage ? (
                     <div className="w-7 h-7 rounded bg-blue-900/40 border border-white/10" />
@@ -136,8 +133,6 @@ const Hero = () => {
                     </svg>
                   )}
                 </div>
-
-                {/* Content */}
                 <div className="flex-1 min-w-0">
                   <p className="text-white/80 text-sm font-medium truncate">{item.text}</p>
                   <p className="text-white/25 text-xs mt-0.5">
@@ -156,7 +151,6 @@ const Hero = () => {
               </p>
               <span className="text-white/20 text-xs flex-shrink-0 pt-0.5">22 chars</span>
             </div>
-            {/* Empty preview space */}
             <div className="h-20" />
           </div>
         </div>
