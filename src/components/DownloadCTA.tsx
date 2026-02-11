@@ -1,6 +1,24 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 
 const DownloadCTA = () => {
+  const [appStoreComingSoon, setAppStoreComingSoon] = useState(false)
+  const [directComingSoon, setDirectComingSoon] = useState(false)
+
+  const handleAppStore = (e: React.MouseEvent) => {
+    e.preventDefault()
+    if (appStoreComingSoon) return
+    setAppStoreComingSoon(true)
+    setTimeout(() => setAppStoreComingSoon(false), 2000)
+  }
+
+  const handleDirect = (e: React.MouseEvent) => {
+    e.preventDefault()
+    if (directComingSoon) return
+    setDirectComingSoon(true)
+    setTimeout(() => setDirectComingSoon(false), 2000)
+  }
+
   return (
     <div className="max-w-7xl mx-auto px-6">
       <motion.div
@@ -91,18 +109,31 @@ const DownloadCTA = () => {
               ))}
             </div>
 
-            {/* CTA */}
-            <motion.a
-              href="#"
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center justify-center w-full px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg shadow-white/10"
-            >
-              <svg className="w-6 h-6 mr-2.5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.05 20.28c-.96.95-2.06 1.92-3.72 1.92-1.61 0-2.14-1.01-4.07-1.01-1.93 0-2.52 1.01-4.04 1.01-1.58 0-2.83-1.12-3.8-2.55C.22 17.73-1.47 13.08 1.41 8.08c1.43-2.48 3.98-4.05 6.7-4.05 2.06 0 4 1.42 5.26 1.42 1.27 0 3.65-1.74 6.13-1.74 1.04 0 3.98.38 5.86 3.13-.15.1-3.5 2.04-3.5 6.1 0 4.88 4.3 6.51 4.3 6.51-.04.12-.67 2.32-2.21 4.56l-.1.1zM11.91 3.91c1.14-1.38 1.91-3.3 1.7-5.22-1.65.07-3.65 1.1-4.83 2.48-1.06 1.23-1.99 3.22-1.73 5.07 1.84.14 3.73-.95 4.86-2.33z"/>
-              </svg>
-              Get on the App Store
-            </motion.a>
+            {/* CTAs */}
+            <div className="flex flex-col gap-3">
+              <motion.button
+                onClick={handleAppStore}
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center justify-center w-full px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg shadow-white/10"
+              >
+                {!appStoreComingSoon && (
+                  <svg className="w-5 h-5 mr-2.5" viewBox="0 0 814 1000" fill="currentColor">
+                    <path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76.5 0-103.7 40.8-165.9 40.8s-105.6-57.8-155.5-127.4C44.1 780.2 0 577.2 0 384c0-186.8 121.3-285.7 240.6-285.7 63.4 0 116.2 41.6 155.9 41.6 37.6 0 96.2-44.2 170.6-44.2 27.5 0 126.3 2.5 191.7 95.2zM554.1 159.4c31.1-36.9 53.1-88.1 53.1-139.4 0-7.1-.6-14.3-1.9-20.1-50.6 1.9-110.8 33.7-147.1 75.8-28.5 32.4-55.1 83.6-55.1 135.5 0 7.8 1.3 15.6 1.9 18.1 3.2.6 8.4 1.3 13.6 1.3 45.4 0 103.5-30.4 135.5-71.2z" />
+                  </svg>
+                )}
+                {appStoreComingSoon ? 'Coming Soon' : 'Download for macOS'}
+              </motion.button>
+
+              <motion.button
+                onClick={handleDirect}
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center justify-center w-full px-8 py-4 bg-transparent text-white rounded-full font-bold text-lg border border-white/20 hover:bg-white/10 transition-colors"
+              >
+                {directComingSoon ? 'Coming Soon' : 'Buy Direct — $29.99'}
+              </motion.button>
+            </div>
 
             <p className="text-white/20 text-xs mt-4">Requires macOS 13 Ventura or later</p>
           </div>
