@@ -108,6 +108,12 @@ body {
   100% { stroke-dashoffset: 0; }
 }
 
+/* Keyframes — beachball spin (QuickPaste competitor card) */
+@keyframes beachball-spin {
+  from { rotate: 0deg; }
+  to { rotate: 360deg; }
+}
+
 /* Keyframes — cursor blink */
 @keyframes cursor-blink {
   0%, 100% { opacity: 1; }
