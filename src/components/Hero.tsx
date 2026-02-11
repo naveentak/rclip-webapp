@@ -1,14 +1,16 @@
 import { motion } from 'framer-motion'
 
 const heroItems = [
-  { num: 1, text: 'https://developer.apple.com/documentation', time: '2m ago', app: 'Safari', isImage: false },
-  { num: 2, text: 'func viewDidLoad() { super.viewDidLoad() }', time: '8m ago', app: 'Xcode', isImage: false },
-  { num: 3, text: 'Meeting notes: Review design specs and finali...', time: '24m ago', app: 'Notes', isImage: false },
-  { num: 4, text: 'Project-Roadmap-Q1.pdf', time: '35m ago', app: 'Finder', isImage: false, active: true },
-  { num: 5, text: 'The quick brown fox jumps over the lazy dog', time: '1h ago', app: 'TextEdit', isImage: false },
-  { num: 6, text: 'app-screenshot.png', time: '2h ago', app: 'Finder', isImage: false },
+  { num: 1, text: 'claude — ~/Projects/rclip ❯ cargo build --release', time: '2m ago', app: 'Ghostty', isImage: false, hasThumb: true },
+  { num: 2, text: 'claude_desktop_config.json', time: '8m ago', app: 'Claude for Desktop', isImage: false },
+  { num: 3, text: 'https://developer.chrome.com/docs/extensions', time: '24m ago', app: 'Chrome', isImage: false },
+  { num: 4, text: 'func applicationDidFinishLaunching(_ note...', time: '35m ago', app: 'Xcode', isImage: false, active: true },
+  { num: 5, text: 'Meeting notes: Review design specs and finali...', time: '1h ago', app: 'Notes', isImage: false },
+  { num: 6, text: 'https://webkit.org/blog/css-containment/', time: '2h ago', app: 'Safari', isImage: false },
   { num: 7, text: '[image]', time: '3h ago', app: 'Preview', isImage: true },
 ]
+
+const expoCurve = [0.16, 1, 0.3, 1] as const
 
 const Hero = () => {
   return (
@@ -75,17 +77,21 @@ const Hero = () => {
       <motion.div
         initial={{ opacity: 0, y: 60, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.8, delay: 0.7, ease: [...expoCurve] }}
         className="mt-20 relative w-full max-w-lg mx-auto"
       >
-        <div className="relative z-10 apple-shadow-lg rounded-2xl overflow-hidden bg-[#232323] border border-white/10">
+        {/* Dark gradient backdrop so frost is visible */}
+        <div className="absolute -inset-8 rounded-3xl bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f0f23] -z-5" />
+
+        <div className="relative z-10 rounded-2xl overflow-hidden liquid-glass-dark border border-white/10">
           {/* Search bar */}
           <div className="px-4 pt-4 pb-2">
-            <div className="flex items-center px-3 py-2.5 bg-white/[0.06] rounded-xl border border-white/10">
+            <div className="flex items-center px-3 py-2.5 liquid-glass-search">
               <svg className="w-4 h-4 text-white/30 mr-2.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
               <span className="text-white/30 text-sm">Search clipboard history...</span>
+              <span className="w-px h-4 bg-white/40 ml-0.5 animate-[cursor-blink_1.2s_ease-in-out_infinite]" />
             </div>
           </div>
 
@@ -96,9 +102,9 @@ const Hero = () => {
                 <div key={tab} className="flex items-center">
                   {i > 0 && <div className="w-px h-4 bg-white/10 mx-0.5" />}
                   <button
-                    className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-all ${
+                    className={`px-3 py-1.5 text-xs font-semibold transition-all ${
                       tab === 'All'
-                        ? 'bg-blue-600 text-white'
+                        ? 'glass-tab-pill text-white'
                         : 'text-white/40 hover:text-white/60'
                     }`}
                   >
@@ -112,11 +118,18 @@ const Hero = () => {
           {/* Divider */}
           <div className="h-px bg-white/5" />
 
-          {/* Clipboard items list */}
+          {/* Clipboard items list — staggered entrance */}
           <div className="divide-y divide-white/[0.03]">
-            {heroItems.map((item) => (
-              <div
+            {heroItems.map((item, index) => (
+              <motion.div
                 key={item.num}
+                initial={{ opacity: 0, filter: 'blur(4px)' }}
+                animate={{ opacity: 1, filter: 'blur(0px)' }}
+                transition={{
+                  duration: 0.4,
+                  delay: 0.9 + index * 0.06,
+                  ease: [...expoCurve],
+                }}
                 className={`flex items-start px-4 py-3 ${
                   item.active ? 'bg-white/[0.08]' : 'hover:bg-white/[0.03]'
                 }`}
@@ -127,6 +140,8 @@ const Hero = () => {
                 <div className="w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3">
                   {item.isImage ? (
                     <div className="w-7 h-7 rounded bg-blue-900/40 border border-white/10" />
+                  ) : item.hasThumb ? (
+                    <div className="w-7 h-7 rounded bg-gradient-to-br from-blue-500/30 to-purple-500/30 border border-white/10" />
                   ) : (
                     <svg className="w-5 h-5 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -139,7 +154,7 @@ const Hero = () => {
                     {item.time}&nbsp;&nbsp;{item.app}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -147,9 +162,9 @@ const Hero = () => {
           <div className="border-t border-white/5">
             <div className="flex items-start justify-between px-4 py-3">
               <p className="text-white/50 text-sm font-mono truncate flex-1 mr-4">
-                Project-Roadmap-Q1.pdf
+                func applicationDidFinishLaunching(_ note...
               </p>
-              <span className="text-white/20 text-xs flex-shrink-0 pt-0.5">22 chars</span>
+              <span className="text-white/20 text-xs flex-shrink-0 pt-0.5">46 chars</span>
             </div>
             <div className="h-20" />
           </div>
