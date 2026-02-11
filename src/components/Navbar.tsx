@@ -34,7 +34,7 @@ const Navbar = ({ scrolled }: NavbarProps) => {
             href="#download"
             className="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-all"
           >
-            Download
+            Get r:clip
           </a>
         </div>
       </div>

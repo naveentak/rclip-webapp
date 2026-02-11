@@ -47,7 +47,7 @@ const Footer = () => {
                 <li><a href="#hero" className="text-gray-600 hover:text-black transition-colors">Overview</a></li>
                 <li><a href="#features" className="text-gray-600 hover:text-black transition-colors">Features</a></li>
                 <li><a href="https://github.com/naveentak/clipstash-macos-app/releases" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black transition-colors">Release Notes</a></li>
-                <li><a href="#download" className="text-gray-600 hover:text-black transition-colors">Download</a></li>
+                <li><a href="#download" className="text-gray-600 hover:text-black transition-colors">Pricing</a></li>
               </ul>
             </div>
             <div>
