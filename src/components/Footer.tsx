@@ -55,7 +55,7 @@ const Footer = () => {
               <ul className="space-y-3 text-sm">
                 <li><a href="https://github.com/naveentak/rclip-macos-app#readme" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black transition-colors">Documentation</a></li>
                 <li><a href="https://github.com/naveentak/rclip-macos-app/issues" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black transition-colors">Report a Bug</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-black transition-colors">Privacy Policy</a></li>
+                <li><a href="/privacy" className="text-gray-600 hover:text-black transition-colors">Privacy Policy</a></li>
               </ul>
             </div>
             <div>
