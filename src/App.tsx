@@ -6,6 +6,7 @@ import Features from './components/Features'
 import HowItWorks from './components/HowItWorks'
 import DownloadCTA from './components/DownloadCTA'
 import Footer from './components/Footer'
+import PrivacyPolicy from './components/PrivacyPolicy'
 
 function App() {
   const [scrollY, setScrollY] = useState(0)
@@ -15,6 +16,10 @@ function App() {
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  if (window.location.pathname === '/privacy') {
+    return <PrivacyPolicy />
+  }
 
   return (
     <div className="min-h-screen relative">
